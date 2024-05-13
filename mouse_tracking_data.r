@@ -29,3 +29,10 @@ str(mt_data)
 
 # mousetrap object now has:
 # data, trajectories, and tn_trajectories (time-normalized)
+
+mt_data <- mt_data %>%
+    mt_measures() %>%
+    mt_derivatives() %>%
+    mt_sample_entropy()
+
+write.csv(mt_data$measures, paste0(getwd(), "/measures.csv"))
